@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-import list from '../../public/list.json';
+// import list from '../../public/list.json';
 import Cards from './Cards';
+import axios from 'axios';
 
 function FreeBook() {
-  const filterData = list.filter((data) => data.category === "Free");
+  const [book, setBook] = useState([])
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
+        // console.log(res.data)
 
-  const settings = {
+        const data = res.data.filter((data) => data.category === "Free");
+        console.log(data)
+        setBook(data)
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getBook();
+  }, [])
+
+  var settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -51,13 +68,13 @@ function FreeBook() {
         <div>
           <h1 className="font-semibold text-xl pb-2">Free Offered Courses</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae laboriosam odit, iusto rerum mollitia embard o ci ve ipsam quibusdam animi vitae dolor vel illum est fugit.
+          Expand your knowledge and advance your skills with our carefully designed free courses. Our expertly crafted learning resources provide high-quality education for learners of all levels—whether you're just starting or looking to refine your expertise. Stay ahead in your field with industry-relevant content, interactive lessons, and practical insights. Begin your learning journey today, completely free!
           </p>
         </div>
 
         <div>
           <Slider {...settings}>
-            {filterData.map((item) => (
+            {book.map((item) => (
               <Cards item={item} key={item.id} />
             ))}
           </Slider>

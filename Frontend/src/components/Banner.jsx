@@ -11,8 +11,7 @@ function Banner() {
                             Hello, welcomes here to learn something <span className='text-pink-500'>new everyday!!!</span>
                         </h1>
                         <p className='text-lg'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nisi, nam aliquid est dolore enim sit laudantium tempore eius magnam porro ducimus doloremque quidem,
-                            dicta repellat mollitia deserunt. Blanditiis deserunt voluptatem illum aliquam quo?
+                        Unlock endless learning opportunities with our expertly curated courses. Gain valuable knowledge, enhance your skills, and stay ahead in your field with our free, high-quality educational resources. Whether you're a beginner or an advanced learner, our courses are designed to help you succeed. Start your journey today!
                         </p>
 
                         <label className="input input-bordered flex items-center gap-2">
@@ -30,7 +29,7 @@ function Banner() {
                         </label>
 
                     </div>
-                    <button className="btn text-white mt-6 btn-secondary">Secondary</button>
+                    <button className="btn text-white mt-6 btn-secondary">Get Started</button>
                 </div>
                 <div className=" order-1 w-full mt-20 md:w-1/2">
                     <img
